@@ -41,7 +41,7 @@ body{
     background-color: rgba(0, 0, 0, 0.8);
     color: #ffe600;
     padding: 20px;
-    min-height: 200px;
+    min-height: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;

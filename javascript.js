@@ -4,21 +4,29 @@ const gryffindorButton = document.getElementById('gryffindor');
 
 const Characters = [
 
-    {id: 1 , name: 'Harry Potter', house: 'Gryffindor', image: 'Bilder/HarryPotter.png'},
-    {id: 2 , name: 'Hermione Granger', house: 'Gryffindor', image: 'Bilder/HermioneGranger.png'},
-    {id: 3 , name: 'Ron Weasley', house: 'Gryffindor', image: 'Bilder/RonWeasley.png'},
-    {id: 4 , name: 'Draco Malfoy', house: 'Slytherin', image: 'Bilder/DracoMalfoy.png'},
-    {id: 5 , name: 'Severus Snape', house: 'Slytherin', image: 'Bilder/SeverusSnape.png'},
+    {id: 1 , name: 'Harry Potter', actor: 'Daniel Radcliffe', image: 'Bilder/HarryPotter.png', House: 'Gryffindor'},
+    {id: 2 , name: 'Hermione Granger', actor: 'Emma Watson', image: 'Bilder/HermioneGranger.png', House: 'Gryffindor'},
+    {id: 3 , name: 'Ron Weasley', actor: 'Rupert Grint', image: 'Bilder/RonWeasley.png', House: 'Gryffindor'},
+    {id: 4 , name: 'Draco Malfoy', actor: 'Tom Felton', image: 'Bilder/DracoMalfoy.png', House: 'Slytherin'},
+    {id: 5 , name: 'Severus Snape', actor: 'Alan Rickman', image: 'Bilder/SeverusSnape.png' , House: 'Slytherin'},
 ]
 
-function displayCharacters(characters) {
+const characterContainer = document.getElementById('cards-container');
 
+visaAllButton.addEventListener('click', function(){
+for (let i = 0; i < Characters.length; i++){
 
-
+    characterContainer.innerHTML += `
+    <div class="card" id="card${Characters[i].id}">
+        <h1>${Characters[i].name}</h1>
+        <p>Actor: ${Characters[i].actor}</p>
+        <p>House: ${Characters[i].House}</p>
+        <img src="${Characters[i].image}" alt="${Characters[i].name}">
+    </div>
+    `
 }
-
-visaAllButton.addEventListener('click', () => {
-    console.log('Visa alla knappen klickad');
-});  
+}); 
 
 
+
+displayCharacters(Characters);
