@@ -12,21 +12,32 @@ const Characters = [
 ]
 
 const characterContainer = document.getElementById('cards-container');
+function displayCharacters(list) {
+    characterContainer.innerHTML = '';
+    for (let i = 0; i < list.length; i++){
+        characterContainer.innerHTML += `
+        <div class="card" id="card${list[i].id}">
+            <h1>${list[i].name}</h1>
+            <p>Actor: ${list[i].actor}</p>
+            <p>House: ${list[i].House}</p>
+            <img src="${list[i].image}" alt="${list[i].name}">
+        </div>
+        `
+    }
+}
 
 visaAllButton.addEventListener('click', function(){
-for (let i = 0; i < Characters.length; i++){
+    displayCharacters(Characters);
+});
 
-    characterContainer.innerHTML += `
-    <div class="card" id="card${Characters[i].id}">
-        <h1>${Characters[i].name}</h1>
-        <p>Actor: ${Characters[i].actor}</p>
-        <p>House: ${Characters[i].House}</p>
-        <img src="${Characters[i].image}" alt="${Characters[i].name}">
-    </div>
-    `
-}
-}); 
+slytherinButton.addEventListener('click', function(){
+    const filtered = Characters.filter(c => c.House && c.House.toLowerCase() === 'slytherin');
+    displayCharacters(filtered);
+});
 
-
+gryffindorButton.addEventListener('click', function(){
+    const filtered = Characters.filter(c => c.House && c.House.toLowerCase() === 'gryffindor');
+    displayCharacters(filtered);
+});
 
 displayCharacters(Characters);
